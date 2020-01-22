@@ -31,3 +31,4 @@ Debian, and Kali.
 
 [Lefebure](https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gl=FR) > Make NMEA position data from an external receiver available to other Android applications.
 
+[Markor](https://play.google.com/store/apps/details?id=net.gsantner.markor&gl=FR) > for modify parameters (rtkrcv.txt)
