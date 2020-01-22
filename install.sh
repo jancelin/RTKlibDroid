@@ -24,6 +24,6 @@ chmod +x start.sh
 ##symbolic link for execution at start of session (not possible at start with userland)
 ln -i start.sh /etc/profile.d/start.sh
 
-#rtcrvc conf
+#rtkrcv config
 wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/rtkrcv.txt
 
