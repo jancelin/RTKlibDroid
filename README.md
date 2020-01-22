@@ -2,6 +2,7 @@
 
 * Trace logs llh
 * Centimetric positioning on all your applications with geolocalisation
+* All that can do RTKlib...
 
 > Attention, it is necessary to have an RTK base close to the acquisition area. https://centipede.fr
 
