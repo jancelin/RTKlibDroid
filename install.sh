@@ -18,12 +18,11 @@ make clean
 cd
 
 ##add start.sh to ./
-#wget --no-check-certificate -P ./ http://
+wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/start.sh
 chmod +x start.sh
 ##lien symbolique pour l'execution au lancement de la session (pas possible au demarrage avec userland)
 ln -i start.sh /etc/profile.d/start.sh
 
 #rtcrvc conf
-#wget --no-check-certificate -P /storage/internal/gnss http://
-
+wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/rtkrcv.txt
 
