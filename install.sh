@@ -21,7 +21,7 @@ cd
 ##add start.sh to ./
 wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/start.sh
 chmod +x start.sh
-##lien symbolique pour l'execution au lancement de la session (pas possible au demarrage avec userland)
+##symbolic link for execution at start of session (not possible at start with userland)
 ln -i start.sh /etc/profile.d/start.sh
 
 #rtcrvc conf
