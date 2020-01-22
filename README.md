@@ -20,7 +20,7 @@
 
 ## APP
 
-**Android application required**
+**Required Android applications**
 
 [Userland](https://play.google.com/store/apps/details?id=tech.ula&gl=FR) > UserLAnd is an open-source app which allows you to run several Linux distributions like Ubuntu,
 Debian, and Kali.
@@ -29,7 +29,7 @@ Debian, and Kali.
 
 [Lefebure](https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gl=FR) > Make NMEA position data from an external receiver available to other Android applications.
 
-> Options:
+**Optional Android applications**
 
 [droidinfo](https://play.google.com/store/apps/details?id=com.inkwired.droidinfo&hl=fr) > check that his smartphone is 64-bits
 
