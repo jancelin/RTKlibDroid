@@ -18,7 +18,7 @@
 
 [Ublox F9P](https://store.drotek.com/sirius-rtk-gnss-rover-f9p)
 
-## APP
+## Android APK
 
 **Required Android applications**
 
