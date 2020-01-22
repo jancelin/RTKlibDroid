@@ -3,6 +3,7 @@
 ##installation of rtklib for android userland debian (test with ublox zed-F9P)
 ##ssh rover@192.168.43.1 -p2022   > smartphone
 ##ssh rover@172.24.1.62 -p2022    > raspberry
+### Password: 12345678
 #-----------------------------------------------------------------------------
 ##install tools
 sudo apt-get update
