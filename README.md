@@ -38,7 +38,64 @@ Debian, and Kali.
 
 [Lefebure](https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gl=FR) > Make NMEA position data from an external receiver available to other Android applications.
 
+## Configure antenna
 
-## Installation
+### update the firmware
+
+First of all it is necessary to update the [firmware](https://fr.wikipedia.org/wiki/Firmware) of your F9P module.
+
+* [Install U-center](https://www.u-blox.com/en/product/u-center) (Windows seulement)
+
+* [Update F9P firmware](https://drotek.gitbook.io/rtk-f9p-positioning-solutions/tutorials/updating-zed-f9p-firmware)
+
+### configure ZED-F9P RTK device as a rover
+
+* [download this file](https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/U-Blox_ZED-F9P_rtkrover_5hz.txt)
+
+* [inject file intoZED-F9P](https://drotek.gitbook.io/rtk-f9p-positioning-solutions/how-to-get-started/zed-f9p-rtk-configuration)
+
+## Installation on android smartphone
+
+* install Userland, ConnectBot and TCPUART from PlayStore
+
+### Userland
+
+#### Configure
+
+* download [this debian + rtklib image](https://github.com/jancelin/RTKlibDroid/releases/download/RTKlibDroid_0.1/rtk-debian-rootfs.tar.gz) on internal storage.
+* Start Userland
+* Go to **"files system"** & click **+**
+* fill in the gaps:
+  * name file system: rtk
+  * user nme: rover
+  * password: 12345678
+  * password vnc: 12345678
+  * files system: Debian
+* Click on **Show advanced options** and select the image you downloaded earlier.
+* Save (top right)
+* Go to **"Sessions"** & click **+**
+* fill in the gaps:
+  * session name: rtk
+  * files system: rtk:Debian
+  * service type: ssh
+* Save (top right)
+
+#### first Run for testing
+
+* Go to **"Sessions"**
+* One click on **rtk --> rtk**
+* authorize ConnectBot to connect
+* enter password **12345678**
+* **stream server start** **rtkrcvver.demo5 b33b2 console (h:help)** should appear
+* deconnect ConnectBot session & stop Userland
+
+## Run with antenna connected
+...
+
+
+
+
+
+
 
 ...
