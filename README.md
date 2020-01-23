@@ -90,12 +90,30 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
 * deconnect ConnectBot session & stop Userland
 
 ## Run with antenna connected
-...
 
+* Connect via usb the antenna to the smartphone (OTG adapter)
+* Start TCPUART application:
+  * click on **Connect**
+  * modify port to 8080
+  * click on **Start**
+  * **DON'T CLOSE TCPUART**, come back on android home with your buton
+* Start Userland
+  * Go to **"Sessions"**
+  * One click on **rtk --> rtk**
+  * authorize ConnectBot to connect
+  * enter password **12345678**
+  * **stream server start** **rtkrcvver.demo5 b33b2 console (h:help)** should appear
+  * enter **status 1** for read GNSS RTK status
 
+## Change Base RTK name (https://centipede.fr) and modify rtkrcv parameters
 
+rtkrcv.txt is here: Storage/Android/data/tech.ula/files/storage/gnss/
 
+## Logs LLH
 
+When a session start logs are writings in Storage/Android/data/tech.ula/files/storage/gnss/solution
 
+## Mock location
 
+You can use Lefebure apk to see status and use android mock location.
 ...
