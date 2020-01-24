@@ -50,7 +50,7 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
 
 ### configure ZED-F9P RTK device as a rover
 
-* [download this file](https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/U-Blox_ZED-F9P_rtkrover_5hz.txt)
+* [download this file](https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/U-Blox_ZED-F9P_rtkrover_5hz_pedestrian.txt)
 
 * [inject file intoZED-F9P](https://drotek.gitbook.io/rtk-f9p-positioning-solutions/how-to-get-started/zed-f9p-rtk-configuration)
 
