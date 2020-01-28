@@ -6,7 +6,6 @@
 
 > Attention, it is necessary to have an RTK base close to the acquisition area. https://centipede.fr
 
-
 ## Materials
 
 **Smartphone**
@@ -44,7 +43,7 @@ Debian, and Kali.
 
 First of all it is necessary to update the [firmware](https://fr.wikipedia.org/wiki/Firmware) of your F9P module.
 
-* [Install U-center](https://www.u-blox.com/en/product/u-center) (Windows seulement)
+* [Install U-center](https://www.u-blox.com/en/product/u-center) (Windows or Linux Wine)
 
 * [Update F9P firmware](https://drotek.gitbook.io/rtk-f9p-positioning-solutions/tutorials/updating-zed-f9p-firmware)
 
@@ -56,7 +55,7 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
 
 #### Configure
 
-* download [this debian + rtklib image](https://github.com/jancelin/RTKlibDroid/releases/download/RTKlibDroid_0.1/rtk-debian-rootfs.tar.gz) on internal storage.
+* download [RTKlib-debian-rootfs_X_X.tar.gz](https://github.com/jancelin/RTKlibDroid/releases/download/RTKlibDroid_0.2/RTKlib-debian-rootfs_0_2.tar.gz) on Android internal storage.
 * Start Userland
 * Go to **"files system"** & click **+**
 * fill in the gaps:
@@ -74,16 +73,16 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
   * service type: ssh
 * Save (top right)
 
-![Userland](
+![Userland](https://github.com/jancelin/RTKlibDroid/blob/master/pictures/userland.png)
 
 #### first Run for testing
 
 * Go to **"Sessions"**
-* One click on **rtk --> rtk**
+* One click on **rtk --> RTKlib:Debian**
 * authorize ConnectBot to connect
-* enter password **12345678**
-* **stream server start** **rtkrcvver.demo5 b33b2 console (h:help)** should appear
-* deconnect ConnectBot session & stop Userland
+* enter password **123456**
+* **rtkrcver.demo5 b33b2 console (h:help)** should appear
+* deconnect ConnectBot session & stop Userland session.
 
 ## Run with antenna connected
 
@@ -95,15 +94,19 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
   * **DON'T CLOSE TCPUART**, come back on android home with your buton
 * Start Userland
   * Go to **"Sessions"**
-  * One click on **rtk --> rtk**
+  * One click on **rtk --> RTKlib:Debian**
   * authorize ConnectBot to connect
-  * enter password **12345678**
-  * **stream server start** **rtkrcvver.demo5 b33b2 console (h:help)** should appear
+  * enter password **123456**
+  * **rtkrcver.demo5 b33b2 console (h:help)** should appear
   * enter **status 1** for read GNSS RTK status
 
 ## Change Base RTK name (https://centipede.fr) and modify rtkrcv parameters
 
 rtkrcv.txt is here: Storage/Android/data/tech.ula/files/storage/gnss/
+
+## modify antenna recptor F9P parameters
+
+ZED-F9P.cmd is here: Storage/Android/data/tech.ula/files/storage/gnss/
 
 ## Logs LLH
 
