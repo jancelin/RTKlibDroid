@@ -14,7 +14,7 @@ git clone -b demo5 https://github.com/rtklibexplorer/RTKLIB.git
 cd ./RTKLIB/app 
 make all 
 make install
-cp ./str2str/gcc/str2str /bin 
+#cp ./str2str/gcc/str2str /bin 
 make clean
 cd
 
@@ -26,4 +26,4 @@ ln -i start.sh /etc/profile.d/start.sh
 
 #rtkrcv config
 wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/rtkrcv.txt
-
+wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/ZED-F9P.cmd
