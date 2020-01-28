@@ -30,3 +30,5 @@ mkdir /storage/internal/gnss/solutions
 #import rtkrcv config
 wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/rtkrcv.txt
 wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/ZED-F9P.cmd
+
+#close session, stop session Userland (android), connect GNSS antenna F9P, start TCPUART, start rover Userland.
