@@ -78,7 +78,7 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
 #### first Run for testing
 
 * Go to **"Sessions"**
-* One click on **rtk --> RTKlib:Debian**
+* One click on **rover --> RTKlib:Debian**
 * authorize ConnectBot to connect
 * enter password **123456**
 * **rtkrcver.demo5 b33b2 console (h:help)** should appear
@@ -94,7 +94,7 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
   * **DON'T CLOSE TCPUART**, come back on android home with your buton
 * Start Userland
   * Go to **"Sessions"**
-  * One click on **rtk --> RTKlib:Debian**
+  * One click on **rover --> RTKlib:Debian**
   * authorize ConnectBot to connect
   * enter password **123456**
   * **rtkrcver.demo5 b33b2 console (h:help)** should appear
