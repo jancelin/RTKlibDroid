@@ -33,9 +33,7 @@ Debian, and Kali.
 
 [droidinfo](https://play.google.com/store/apps/details?id=com.inkwired.droidinfo&hl=fr) > check that his smartphone is 64-bits
 
-[Markor](https://play.google.com/store/apps/details?id=net.gsantner.markor&gl=FR) > for modify parameters (rtkrcv.txt)
-
-[Lefebure](https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gl=FR) > Make NMEA position data from an external receiver available to other Android applications.
+[Lefebure](https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gl=FR) > take NMEA position data from RTKlib display solution and enable android mock location.
 
 ## Configure antenna
 
@@ -112,10 +110,82 @@ GLO : Oui
 4) Quit
 Choisir une action:
 ```
-* if parameters ok then write **1** + enter
-* write ```status 1``` + enter for display status 
+* if parameters ok then start RTKLIB: write **1** + enter
 
-## Change parameters 
+```
+Choisir une action: 1
+
+** rtkrcv ver.demo5 b33b2 console (h:help) **
+rtk server start
+rtkrcv> 
+```
+
+* You can write ```status 1``` + enter for display status
+
+```
+rtkrcv> status 1
+```
+
+ex:
+
+```
+Parameter                   : Value
+rtklib version              : demo5 b33b2
+rtk server thread           : 335542016
+rtk server state            : run
+processing cycle (ms)       : 10
+positioning mode            : kinematic
+frequencies                 : L1+L2
+accumulated time to run     : 00:06:25.7
+cpu time for a cycle (ms)   : 25
+missing obs data count      : 0
+bytes in input buffer       : 0,0
+# of input data rover       : obs(1929),nav(30),gnav(7),ion(174),sbs(0),pos(0),dgps(0),ssr(0),err(0)
+# of input data base        : obs(384),nav(34),gnav(9),ion(0),sbs(0),pos(26),dgps(0),ssr(0),err(0)
+# of input data corr        : obs(0),nav(0),gnav(0),ion(0),sbs(0),pos(0),dgps(0),ssr(0),err(0)
+# of rtcm messages rover    : 
+# of rtcm messages base     : 1004(385),1005(13),1006(13),1012(385),1019(156),1020(221),1042(130),1045(646),1046(646),1077(385),1087(385),1097(385),1127(384)
+# of rtcm messages corr     : 
+solution status             : fix
+time of receiver clock rover: 2020/02/03 14:56:19.199867116
+time sys offset (ns)        : 49.277,-4.175,41.798,0.000
+solution interval (s)       : 0.200
+age of differential (s)     : 2.200
+ratio for ar validation     : 3.113
+# of satellites rover       : 36
+# of satellites base        : 41
+# of valid satellites       : 20
+GDOP/PDOP/HDOP/VDOP         : 1.4,1.3,0.7,1.0
+# of real estimated states  : 9
+# of all estimated states   : 353
+pos xyz single (m) rover    : 4438272.095,-79653.936,4564680.439
+pos llh single (deg,m) rover: 45.99214112,-1.02818042,55.256
+vel enu (m/s) rover         : -0.003,-0.005,0.003
+pos xyz float (m) rover     : 4438271.878,-79653.347,4564680.174
+pos xyz float std (m) rover : 0.014,0.018,0.009
+pos xyz fixed (m) rover     : 4438272.095,-79653.936,4564680.439
+pos xyz fixed std (m) rover : 0.007,0.004,0.005
+pos xyz (m) base            : 4426044.934,-89425.964,4576296.255
+pos llh (deg,m) base        : 46.14264305,-1.15747430,67.958
+# of average single pos base: 0
+ant type rover              : 
+ant delta rover             : 0.000 0.000 0.000
+ant type base               : 
+ant delta base              : 0.000 0.000 0.000
+vel enu (m/s) base          : 0.000,0.000,0.000
+baseline length float (m)   : 19491.935
+baseline length fixed (m)   : 19491.618
+last time mark              : -
+receiver time mark count    : 0
+rtklib time mark count      : 0
+```
+
+## Logs LLH
+
+When a session start logs are writings on a share directory available on android : ```Storage/Android/data/tech.ula/files/storage/gnss/solution```
+
+
+## Modify parameters 
 
 ```
 Choisir une action: 3
@@ -171,8 +241,8 @@ Change receiver connection: tcpcli to:
 1 : tcpcli
 ```
 
-* default parameters tcp: ```:@localhost:8080:```
-* Use serial if you want to run RTKlibDroid on PC, default parameters tcp : ```ttyACM0:115200:8:n:1:off```
+* default parameters tcp: ```:@localhost:8080:``` + llh logs outpath ```/storage/internal/gnss/solutions/```
+* Use serial if you want to run RTKlibDroid on a PC, default parameters tcp : ```ttyACM0:115200:8:n:1:off``` + llh logs outpath ```./solution/```
 
 
 ### 3) Caster Connexion
@@ -251,10 +321,6 @@ You can edit conf files with nano, they are here:
 ./var/rtkrcv_var.txt
 ./var/F9P_var.cmd
 
-
-## Logs LLH
-
-When a session start logs are writings on a share directory available on android : ```Storage/Android/data/tech.ula/files/storage/gnss/solution```
 
 ## Mock location
 

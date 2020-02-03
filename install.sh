@@ -19,7 +19,11 @@ cd
 
 #get RTKlibDroid
 git clone -b master https://github.com/jancelin/RTKlibDroid.git
-cp -r ./RTKlibDroid/* ./
+cp ./RTKlibDroid/start.sh ./
+cp -r ./RTKlibDroid/run ./
+cp -r ./RTKlibDroid/var ./
+cp -r ./RTKlibDroid/source ./
+
 find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 ##symbolic link for execution at start of session (not possible at start with userland)
 ln -i start.sh /etc/profile.d/start.sh
