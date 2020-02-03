@@ -53,7 +53,7 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
 
 #### Configure
 
-* download [RTKlib-debian-rootfs_X_X.tar.gz](https://github.com/jancelin/RTKlibDroid/releases/download/RTKlibDroid_0.2/RTKlib-debian-rootfs_0_2.tar.gz) on Android internal storage.
+* download [RTKlib-debian-rootfs_X_X.tar.gz](https://github.com/jancelin/RTKlibDroid/releases/download/RTKlibDroid_0.3/RTKlib-debian-rootfs_0_3.tar.gz) on Android internal storage.
 * Start Userland
 * Go to **"files system"** & click **+**
 * fill in the gaps:
