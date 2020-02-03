@@ -110,7 +110,7 @@ GLO : Oui
 4) Quit
 Choisir une action:
 ```
-* if parameters ok then start RTKLIB: write **1** + enter
+* if parameters are OK then start Rover RTKLIB: write **1** + enter
 
 ```
 Choisir une action: 1
