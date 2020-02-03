@@ -45,20 +45,18 @@ InOutPut()   {
 #subsubmenu Correction Input
 corinput() {
   local PS3='Modifier:'
-  select opt in "Mount Point" "Correction Format" "Adresse" "Port" "Username" "Password" "Return"
+  select opt in "Caster Mount Point" "Caster Adresse" "Caster Port" "Caster Username" "Caster Password" "Return"
   do
       case $opt in
-          "Mount Point")
+          "Caster Mount Point")
               MountP;;
-          "Correction Format")
-              corectformat;;
           "Caster Adresse")
-              Adresse;;
+              adresse;;
           "Caster Port")
               Port;;
           "Caster Username")
               Username;;
-          "caster Password")
+          "Caster Password")
               Psw;;
           "Return")
               return;;
@@ -91,14 +89,14 @@ sat()   {
 # submenu modification
 submenu () {
   local PS3='Modifier:'
-  select opt in "RTK setting" "Antenna Connexion" "Correction Input" "Satellites" "Return"
+  select opt in "RTK setting" "Antenna Connexion" "Caster Connexion" "Satellites" "Return"
   do
       case $opt in
           "RTK setting")
               rtkset;;
           "Antenna Connexion")
               InOutPut;;
-          "Correction Input")
+          "Caster Connexion")
               corinput;;
 	  "Satellites")
 	      sat;;

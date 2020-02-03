@@ -75,15 +75,6 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
 
 ![Userland](https://github.com/jancelin/RTKlibDroid/blob/master/pictures/userland.png)
 
-#### first Run for testing
-
-* Go to **"Sessions"**
-* One click on **rover --> RTKlib:Debian**
-* authorize ConnectBot to connect
-* enter password **123456**
-* **rtkrcver.demo5 b33b2 console (h:help)** should appear
-* deconnect ConnectBot session & stop Userland session.
-
 ## Run with antenna connected
 
 * Connect via usb the antenna to the smartphone (OTG adapter)
@@ -97,20 +88,173 @@ First of all it is necessary to update the [firmware](https://fr.wikipedia.org/w
   * One click on **rover --> RTKlib:Debian**
   * authorize ConnectBot to connect
   * enter password **123456**
-  * **rtkrcver.demo5 b33b2 console (h:help)** should appear
-  * enter **status 1** for read GNSS RTK status
+* RTKlibDroid display
 
-## Change Base RTK name (https://centipede.fr) and modify rtkrcv parameters
+```
+Paramétres actuels
+------------------
+Positionnement: kinematic
+Mount Point: LIENSS
+Rate: 1000 ms
+Model: Pedestrian
+Elevation: 10°
+Input: tcpcli :@localhost:8080:
+caster: caster.centipede.fr:2101 rtcm3
+GPS : Oui
+GAL : Oui
+BDS : Oui
+QZSS: Oui
+GLO : Oui
+------------------
+1) Start Rover
+2) Display Param
+3) Modification
+4) Quit
+Choisir une action:
+```
+* if parameters ok then write **1** + enter
+* write ```status 1``` + enter for display status 
 
-rtkrcv.txt is here: Storage/Android/data/tech.ula/files/storage/gnss/
+## Change parameters 
 
-## modify antenna recptor F9P parameters
+```
+Choisir une action: 3
+1) RTK setting	      3) Caster Connexion   5) Return
+2) Antenna Connexion  4) Satellites
+```
+### 1) RTK setting
 
-ZED-F9P.cmd is here: Storage/Android/data/tech.ula/files/storage/gnss/
+```
+Modifier:1
+1) Positionning Mode  3) Elevation	    5) Return
+2) Model	      4) Rate
+Modifier:1
+
+Change 1: kinematic to:
+
+3 : static
+2 : single
+1 : kinematic
+
+Modifier:2
+
+Change Model: 3 : Pedestrian to:
+
+0 : Portable
+2 : Stationary
+3 : Pedestrian
+4 : Automotive
+5 : Sea
+6 : Airborne <1g
+7 : Airborne <2g
+8 : Airborne <3g
+
+Modifier:3
+
+Change elevation mask: 10° to:
+
+Modifier:4
+
+change Rate: 200 ms to:
+
+```
+### 2) Antenna Connexion
+
+```
+Modifier:2
+1) RCV connection
+2) Return
+Modifier:1
+
+Change receiver connection: tcpcli to:
+2 : serial
+1 : tcpcli
+```
+
+* default parameters tcp: ```:@localhost:8080:```
+* Use serial if you want to run RTKlibDroid on PC, default parameters tcp : ```ttyACM0:115200:8:n:1:off```
+
+
+### 3) Caster Connexion
+
+```
+Modifier:3
+1) Caster Mount Point  3) Caster Port	      5) Caster Password
+2) Caster Adresse      4) Caster Username     6) Return
+Modifier:1
+
+change Mount Point: LIENSS to:
+
+Modifier:2
+
+change caster adrss: caster.centipede.fr to:
+
+Modifier:3
+
+change caster port: 2101 to:
+
+Modifier:4
+!!!Paramètre non intégré!!!
+change caster username: to:
+
+Modifier:5
+!!!Paramètre non intégré!!!
+change caster password: to:
+
+```
+
+### 4) Satellites
+
+```
+Modifier:4
+1) GPS
+2) GAL
+3) GLO
+4) BDS
+5) QZSS
+6) Return
+Modifier:1
+
+GPS activ: Oui to:
+Non : 0
+Oui : 1
+
+Modifier:2
+
+GALILEO activ: Oui to:
+Non : 0
+Oui : 1
+
+Modifier:3
+
+GLONASS activ: Oui to:
+Non : 0
+Oui : 1
+
+Modifier:4
+
+BEIDOU activ: Oui to:
+Non : 0
+Oui : 1
+
+Modifier:5
+
+QZSS activ: Oui to:
+Non : 0
+Oui : 1
+```
+
+### Other parameters
+
+You can edit conf files with nano, they are here:
+
+./var/rtkrcv_var.txt
+./var/F9P_var.cmd
+
 
 ## Logs LLH
 
-When a session start logs are writings in Storage/Android/data/tech.ula/files/storage/gnss/solution
+When a session start logs are writings on a share directory available on android : ```Storage/Android/data/tech.ula/files/storage/gnss/solution```
 
 ## Mock location
 

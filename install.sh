@@ -18,9 +18,8 @@ make clean
 cd
 
 #get RTKlibDroid
-
 git clone -b master https://github.com/jancelin/RTKlibDroid.git
-cp ./RTKlibDroid/* ./
+cp -r ./RTKlibDroid/* ./
 find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 ##symbolic link for execution at start of session (not possible at start with userland)
 ln -i start.sh /etc/profile.d/start.sh
