@@ -17,18 +17,12 @@ make install
 make clean
 cd
 
-##add start.sh to ./
-wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/start.sh
-chmod +x start.sh
+#get RTKlibDroid
+
+git clone -b master https://github.com/jancelin/RTKlibDroid.git
+cp ./RTKlibDroid/* ./
+find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 ##symbolic link for execution at start of session (not possible at start with userland)
 ln -i start.sh /etc/profile.d/start.sh
-
-#create storage solutions for gnss llh logs >sol_%Y%m%d%h%M%S.pos
-mkdir /storage/internal/gnss
-mkdir /storage/internal/gnss/solutions
-
-#import rtkrcv config
-wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/rtkrcv.txt
-wget --no-check-certificate -P /storage/internal/gnss https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/ZED-F9P.cmd
 
 #close session, stop session Userland (android), connect GNSS antenna F9P, start TCPUART, start rover Userland.
