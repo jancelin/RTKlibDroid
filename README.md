@@ -242,7 +242,7 @@ Change receiver connection: tcpcli to:
 ```
 
 * default parameters tcp: ```:@localhost:8080:``` + llh logs outpath ```/storage/internal/gnss/solutions/```
-* Use serial if you want to run RTKlibDroid on a PC, default parameters tcp : ```ttyACM0:115200:8:n:1:off``` + llh logs outpath ```./solution/```
+* Use serial if you want to run RTKlibDroid on a PC, default parameters serial: ```ttyACM0:115200:8:n:1:off``` + llh logs outpath ```./solution/```
 
 
 ### 3) Caster Connexion
@@ -319,6 +319,7 @@ Oui : 1
 You can edit conf files with nano, they are here:
 
 ./var/rtkrcv_var.txt
+
 ./var/F9P_var.cmd
 
 
