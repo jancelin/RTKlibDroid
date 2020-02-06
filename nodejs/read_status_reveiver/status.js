@@ -97,7 +97,6 @@ connection.on('data', function(response){
   io.emit('solution', dict);  
   setTimeout(timerSolution, 2000);
 	}
-
 setTimeout(timerSolution, 2000);
 
     function timerRatio() {
@@ -106,8 +105,26 @@ setTimeout(timerSolution, 2000);
    io.emit('ratio', dict);
    setTimeout(timerSolution, 2000);
      }
-
 setTimeout(timerRatio, 2000);
+
+    function timerAge() {
+   Age = dict['age of differential (s)'];
+   dict['Age'] = Age;
+   io.emit('age', dict);
+   setTimeout(timerSolution, 2000);
+     }
+setTimeout(timerAge, 2000);
+
+function timerSd() {
+  //console.log('TimerFunc');
+  dict['SDE'] = SDE;
+  dict['SDN'] = SDN;
+  dict['SDU'] = SDU;
+  io.emit('precision', dict);  
+  setTimeout(timerSd, 1000);
+}
+setTimeout(timerSd, 1000);
+
 
     //Split GDOP/PDOP/HDOP/VDOP in to diffrent parameters
     GPHV = dict['GDOP/PDOP/HDOP/VDOP'];
@@ -135,7 +152,6 @@ function timerFunc() {
   io.emit('position', dict);  
   setTimeout(timerFunc, 1000);
 }
-
 setTimeout(timerFunc, 1000);
 
     //pos xyz single (m) rover in to diffrent parameters#
@@ -268,6 +284,27 @@ setTimeout(timerFunc2, 200);
     //console.log(time_clock_rover);
     //var year = Date(getFullyear(time_clock_rover));
     //console.log(year);
+
+    //sdu sdn sde
+    Solution = dict['solution status'];
+    if (Solution == 'single') {
+	SDN = "undefined"
+	SDE = "undefined"
+        SDU = "undefined"
+       } else if (Solution == 'float') {
+	SDN = POS_XYZ_Float_Std_Y
+	SDE = POS_XYZ_Float_Std_X
+        SDU = POS_XYZ_Float_Std_Z
+       } else if (Solution == 'fix') {
+	SDN = POS_XYZ_Fixed_Std_Y
+	SDE = POS_XYZ_Fixed_Std_X
+        SDU = POS_XYZ_Fixed_Std_Z
+       } else {
+	SDN = "no signal"
+	SDE = "no signal"
+        SDU = "no signal"
+       };
+
   } 
 });
 
@@ -295,5 +332,5 @@ connection.on('close', function() {
  
 connection.connect(params);
 
-server.listen(4500);
+server.listen(4300);
 
