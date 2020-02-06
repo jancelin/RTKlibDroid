@@ -85,7 +85,7 @@ connection.on('data', function(response){
   key = 'last time mark';
   key = 'receiver time mark count';
   key = 'rtklib time mark count';
-  key = 'monitor port'
+  key = 'monitor port' //necessaire pour basertk pas pour roverdroid
 
   if (key in dict){
     //console.log('baseline:'+dict['baseline length float (m)']);
@@ -283,13 +283,15 @@ connection.on('connect', function() {
 connection.on('timeout', function() {
   console.log('socket timeout!')
   connection.end()
-})
+});
  
 connection.on('close', function() {
   console.log('connection closed')
-})
+  connection.connect(params);
+  console.log('connection ON')
+});
  
-connection.connect(params)
+connection.connect(params);
 
 server.listen(4500);
 
