@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+          <div id="bar"> 
+          Solution: <span id="solution_status"></span><br>          
+          GDOP: <span id="GDOP"></span><br>         
+          PDOP: <span id="PDOP"></span><br>
+          HDOP: <span id="HDOP"></span><br> 
+          VDOP: <span id="VDOP"></span><br> 
+          LAT: <span id="POS_Single_LAT"></span><br>
+          LONG: <span id="POS_Single_LONG"></span><br> 
+          HEIGHT: <span id="POS_Single_H"></span><br>                  
+             </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+        var socket = io();
+        
+    socket.on('position', function(state) {      
+      console.log('position' + state);
+      $("#GDOP").text(state.GDOP);                
+      $("#PDOP").text(state.PDOP);                
+      $("#HDOP").text(state.HDOP);
+      $("#VDOP").text(state.VDOP);
+    });
+
+    socket.on('POS_Single_LLH', function(state) {      
+      console.log('POS_Single_LLH' + state);
+      $("#POS_Single_LAT").text(state.POS_Single_LAT);                
+      $("#POS_Single_LONG").text(state.POS_Single_LONG);
+      $("#POS_Single_H").text(state.POS_Single_H);
+    });
+
+    socket.on('solution', function(state) {      
+      console.log('solution' + state);
+      $("#solution_status").text(state.Solution);                
+    });
+
+        </script>
+
+
+
+    </body>
+</html>
+

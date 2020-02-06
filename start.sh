@@ -122,6 +122,9 @@ do
                 if pgrep rtkrcv
                  then pkill rtkrcv && rtkrcv -s -o ./run/rtkrcv_use.txt
                  else rtkrcv -s -o ./run/rtkrcv_use.txt
+# activ port 5000 for connection with telenet, python or nodejs 
+#                 then pkill rtkrcv && rtkrcv -s -p 5000 -m 5001 -o ./run/rtkrcv_use.txt
+#                 else rtkrcv -s -p 5000 -m 5001 -o ./run/rtkrcv_use.txt
                 fi
             ;;
         "Display Param")

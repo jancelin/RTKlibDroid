@@ -1,5 +1,9 @@
 # good starting point for rtknavi options for u-blox NEO-M8T 5 Hz: demo5 b29 code
 
+console-passwd     = 
+console-timetype   =gpst       # (0:gpst,1:utc,2:jst,3:tow) 
+console-soltype    =dms        # (0:dms,1:deg,2:xyz,3:enu,4:pyl) 
+console-solflag    =2          # (0:off,1:std+2:age/ratio/ns) 
 pos1-posmode       =${POS}  # (0:single,1:dgps,2:kinematic,3:static,4:static-start,5:movingbase,6:fixed,7:ppp-kine,8:ppp-static,9:ppp-fixed)
 pos1-frequency     =l1+l2         # (1:l1,2:l1+l2,3:l1+l2+l5,4:l1+l5)
 pos1-soltype       =forward    # (0:forward,1:backward,2:combined)

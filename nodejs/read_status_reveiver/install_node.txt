@@ -1,0 +1,10 @@
+
+ 2012  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+ 2013  sudo apt install nodejs
+ 2014  npm --version
+ 2015  npm install socket.io
+ 2019  npm install telnet
+ 2024  npm install express
+ 2026  npm install telnet-client
+ 2027  node status.js
+
