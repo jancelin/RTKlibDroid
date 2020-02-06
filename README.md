@@ -179,6 +179,9 @@ last time mark              : -
 receiver time mark count    : 0
 rtklib time mark count      : 0
 ```
+## NMEA
+
+NMEA is enable at http://localhost:9000
 
 ## Logs LLH
 
