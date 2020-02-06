@@ -11,14 +11,19 @@
           Age: <span id="age_status"></span><br>
 	  <span></span><br>
           LAT: <span id="POS_Single_LAT"></span><br>
-	  SDN:  <span id="SDN"></span><br>
+	  SDN (m):  <span id="SDN"></span><br>
 	  <span></span><br>
           LONG: <span id="POS_Single_LONG"></span><br> 
-	  SDE:  <span id="SDE"></span><br>
+	  SDE (m):  <span id="SDE"></span><br>
 	  <span></span><br>
           HEIGHT: <span id="POS_Single_H"></span><br>
-	  SDU:  <span id="SDU"></span><br> 
-            
+	  SDU (m):  <span id="SDU"></span><br> 
+	  <span></span><br>
+          SAT BASE:  <span id="SATELLITES_BASE"></span><br>
+	  SAT ROVER: <span id="SATELLITES_ROVER"></span><br> 
+	  SAT Valid: <span id="SATELLITES_VALID"></span><br> 
+	  <span></span><br>
+          BASE LINE (m):  <span id="BASELINE"></span><br>    
              </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -40,6 +45,13 @@
       $("#SDU").text(state.SDU);
     });
 
+    socket.on('SAT', function(state) {      
+      //console.log('precision' + state);
+      $("#SATELLITES_BASE").text(state.SATELLITES_BASE);                
+      $("#SATELLITES_ROVER").text(state.SATELLITES_ROVER);                
+      $("#SATELLITES_VALID").text(state.SATELLITES_VALID);
+    });
+
     socket.on('solution', function(state) {      
       //console.log('solution' + state);
       $("#solution_status").text(state.Solution);                
@@ -51,8 +63,11 @@
     });
 
     socket.on('age', function(state) {      
-      //console.log('age' + state);
       $("#age_status").text(state.Age);                
+    });
+
+    socket.on('BASELINE', function(state) {      
+      $("#BASELINE").text(state.BASELINE);                
     });
 
         </script>

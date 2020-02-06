@@ -103,7 +103,7 @@ setTimeout(timerSolution, 2000);
    Ratio = dict['ratio for ar validation'];
    dict['Ratio'] = Ratio;
    io.emit('ratio', dict);
-   setTimeout(timerSolution, 2000);
+   setTimeout(timerRatio, 2000);
      }
 setTimeout(timerRatio, 2000);
 
@@ -111,48 +111,37 @@ setTimeout(timerRatio, 2000);
    Age = dict['age of differential (s)'];
    dict['Age'] = Age;
    io.emit('age', dict);
-   setTimeout(timerSolution, 2000);
+   setTimeout(timerAge, 2000);
      }
 setTimeout(timerAge, 2000);
 
-function timerSd() {
+    function timerSat() {
+  //console.log('TimerFunc');
+  dict['SATELLITES_BASE'] = SATELLITES_BASE;
+  dict['SATELLITES_ROVER'] = SATELLITES_ROVER;
+  dict['SATELLITES_VALID'] = SATELLITES_VALID;
+  io.emit('SAT', dict);  
+  setTimeout(timerSat, 1000);
+    }
+setTimeout(timerSat, 1000);
+
+    function timerSd() {
   //console.log('TimerFunc');
   dict['SDE'] = SDE;
   dict['SDN'] = SDN;
   dict['SDU'] = SDU;
   io.emit('precision', dict);  
   setTimeout(timerSd, 1000);
-}
+    }
 setTimeout(timerSd, 1000);
 
-
-    //Split GDOP/PDOP/HDOP/VDOP in to diffrent parameters
-    GPHV = dict['GDOP/PDOP/HDOP/VDOP'];
-    console.log(GPHV);
-    GPHV_Split = GPHV.split(",");
-    //console.log(GPHV_Split[0]);
-    //console.log(GPHV_Split[1]);
-    //console.log(GPHV_Split[2]);
-    //console.log(GPHV_Split[3]);
-    GDOP = GPHV_Split[0];
-    PDOP = GPHV_Split[1];
-    HDOP = GPHV_Split[2];
-    VDOP = GPHV_Split[3];
-
-    //console.log(GDOP);
-    //console.log(PDOP);
-    //console.log(PDOP);
-
-function timerFunc() {
-  //console.log('TimerFunc');
-  dict['GDOP'] = GDOP;
-  dict['PDOP'] = PDOP;
-  dict['HDOP'] = HDOP;
-  dict['VDOP'] = VDOP;
-  io.emit('position', dict);  
-  setTimeout(timerFunc, 1000);
-}
-setTimeout(timerFunc, 1000);
+    function timerBaseLine() {
+   //console.log('timerBaseLine');
+   dict['BASELINE'] = BASELINE;
+   io.emit('BASELINE', dict);
+  setTimeout(timerBaseLine, 1000);
+    }
+setTimeout(timerBaseLine, 1000);
 
     //pos xyz single (m) rover in to diffrent parameters#
     POS_Single = dict['pos xyz single (m) rover'];
@@ -182,30 +171,7 @@ setTimeout(timerFunc, 1000);
   io.emit('POS_Single_LLH', dict);  
   setTimeout(timerFunc2, 200);
 }
-
 setTimeout(timerFunc2, 200);
-
-	//Check if value is not empty. If its is skip split and return X
-    VEL_Enu = dict['vel enu (m/s) rover'];
-    if (VEL_Enu) {
-		VEL_Enu_Split = VEL_Enu.split(",");
-    	VEL_Enu_E = VEL_Enu_Split[0];
-    	VEL_Enu_N = VEL_Enu_Split[1];
-    	VEL_Enu_U = VEL_Enu_Split[2];
-	} else { 
-		VEL_Enu_E = ("undefined");
-    	VEL_Enu_N = ("undefined");
-    	VEL_Enu_U = ("undefined");
-	};
-	//console.log(VEL_Enu_N);
-
-    //vel enu (m/s) rover #
-    //VEL_Enu = dict['vel enu (m/s) rover'];
-    //VEL_Enu_Split = VEL_Enu.split(",");
-    //VEL_Enu_E = VEL_Enu_Split[0];
-    //VEL_Enu_N = VEL_Enu_Split[1];
-    //VEL_Enu_U = VEL_Enu_Split[2];
-    //console.log(VEL_Enu_U);
 
     //pos xyz float in to diffrent parameters#
     POS_XYZ_Float = dict['pos xyz float (m) rover'];
@@ -238,6 +204,26 @@ setTimeout(timerFunc2, 200);
     POS_XYZ_Fixed_Std_Y = POS_XYZ_Fixed_Std_Split[1];
     POS_XYZ_Fixed_Std_Z = POS_XYZ_Fixed_Std_Split[2];
     //console.log(POS_XYZ_Fixed_Std_X);
+
+    //sdu sdn sde
+    Solution = dict['solution status'];
+    if (Solution == '-') {
+	SDN = "undefined"
+	SDE = "undefined"
+        SDU = "undefined"
+       } else if (Solution == 'float') {
+	SDN = POS_XYZ_Float_Std_Y
+	SDE = POS_XYZ_Float_Std_X
+        SDU = POS_XYZ_Float_Std_Z
+       } else if (Solution == 'fix') {
+	SDN = POS_XYZ_Fixed_Std_Y
+	SDE = POS_XYZ_Fixed_Std_X
+        SDU = POS_XYZ_Fixed_Std_Z
+       } else {
+	SDN = "no signal"
+	SDE = "no signal"
+        SDU = "no signal"
+       };
 
     //pos xyz (m) base in to diffrent parameters#
     POS_XYZ_Base = dict['pos xyz (m) base'];
@@ -285,24 +271,23 @@ setTimeout(timerFunc2, 200);
     //var year = Date(getFullyear(time_clock_rover));
     //console.log(year);
 
-    //sdu sdn sde
-    Solution = dict['solution status'];
-    if (Solution == 'single') {
-	SDN = "undefined"
-	SDE = "undefined"
-        SDU = "undefined"
+    //satellites
+    SATELLITES_BASE = dict['# of satellites base'];
+    SATELLITES_ROVER = dict['# of satellites rover'];
+    SATELLITES_VALID = dict['# of valid satellites'];
+
+    //Baseline lenght
+    BASELINE_FLOAT = dict['baseline length float (m)'];
+    BASELINE_FIX =  dict['baseline length fixed (m)'];
+
+    if (Solution == '-') {
+	BASELINE = "undefined"
        } else if (Solution == 'float') {
-	SDN = POS_XYZ_Float_Std_Y
-	SDE = POS_XYZ_Float_Std_X
-        SDU = POS_XYZ_Float_Std_Z
+	BASELINE = BASELINE_FLOAT
        } else if (Solution == 'fix') {
-	SDN = POS_XYZ_Fixed_Std_Y
-	SDE = POS_XYZ_Fixed_Std_X
-        SDU = POS_XYZ_Fixed_Std_Z
+	BASELINE = BASELINE_FIX
        } else {
-	SDN = "no signal"
-	SDE = "no signal"
-        SDU = "no signal"
+	BASELINE = "no signal"
        };
 
   } 
@@ -332,5 +317,5 @@ connection.on('close', function() {
  
 connection.connect(params);
 
-server.listen(4300);
+server.listen(4600);
 
