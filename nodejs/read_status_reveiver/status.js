@@ -100,7 +100,14 @@ connection.on('data', function(response){
 
 setTimeout(timerSolution, 2000);
 
+    function timerRatio() {
+   Ratio = dict['ratio for ar validation'];
+   dict['Ratio'] = Ratio;
+   io.emit('ratio', dict);
+   setTimeout(timerSolution, 2000);
+     }
 
+setTimeout(timerRatio, 2000);
 
     //Split GDOP/PDOP/HDOP/VDOP in to diffrent parameters
     GPHV = dict['GDOP/PDOP/HDOP/VDOP'];
@@ -151,7 +158,6 @@ setTimeout(timerFunc, 1000);
     //console.log(POS_Single_LONG);
     //console.log(POS_Single_H);
 
-
     function timerFunc2() {
   //console.log('TimerFunc');
   dict['POS_Single_LAT'] = POS_Single_LAT;
@@ -193,8 +199,6 @@ setTimeout(timerFunc2, 200);
     POS_XYZ_Float_Z = POS_XYZ_Float_Split[2];
     //console.log(POS_XYZ_Float_Z);
 
-   
-
      //pos xyz float std (m) rover in to diffrent parameters#
      POS_XYZ_Float_Std = dict['pos xyz float std (m) rover'];
      POS_XYZ_Float_Std_Split = POS_XYZ_Float_Std.split(",");
@@ -202,7 +206,6 @@ setTimeout(timerFunc2, 200);
      POS_XYZ_Float_Std_Y = POS_XYZ_Float_Std_Split[1];
      POS_XYZ_Float_Std_Z = POS_XYZ_Float_Std_Split[2];
      //console.log(POS_XYZ_Float_Std_Z);
-
 
     //pos xyz fixed (m) rover in to diffrent parameters#
     POS_XYZ_Fixed = dict['pos xyz fixed (m) rover'];
@@ -220,7 +223,6 @@ setTimeout(timerFunc2, 200);
     POS_XYZ_Fixed_Std_Z = POS_XYZ_Fixed_Std_Split[2];
     //console.log(POS_XYZ_Fixed_Std_X);
 
-
     //pos xyz (m) base in to diffrent parameters#
     POS_XYZ_Base = dict['pos xyz (m) base'];
     POS_XYZ_Base_Split = POS_XYZ_Base.split(",");
@@ -228,7 +230,6 @@ setTimeout(timerFunc2, 200);
     POS_XYZ_Base_Y = POS_XYZ_Base_Split[1];
     POS_XYZ_Base_Z = POS_XYZ_Base_Split[2];
     //console.log(POS_XYZ_Base_X);
-
 
     //pos llh (deg,m) base in to diffrent parameters#
     POS_LLH_Base = dict['pos llh (deg,m) base'];
@@ -238,7 +239,6 @@ setTimeout(timerFunc2, 200);
     POS_LLH_Base_Height = POS_LLH_Base_Split[2];
     //console.log(POS_LLH_Base_Latitude);
 
-
     //ant delta rover e/n/u#
     ANT_Delta_Rover = dict['ant delta rover'];
     ANT_Delta_Rover_Split = ANT_Delta_Rover.split(" ");
@@ -247,7 +247,7 @@ setTimeout(timerFunc2, 200);
     ANT_Delta_Rover_U = ANT_Delta_Rover_Split[2];
     //console.log(ANT_Delta_Rover_E);
 
-    //ant delta base e/n/u#
+    //ant delta base e/n/u#f
     ANT_Delta_Base = dict['ant delta base'];
     ANT_Delta_Base_Split = ANT_Delta_Base.split(" ");
     ANT_Delta_Base_E = ANT_Delta_Base_Split[0];
@@ -283,6 +283,8 @@ connection.on('connect', function() {
 connection.on('timeout', function() {
   console.log('socket timeout!')
   connection.end()
+  connection.connect(params);
+  console.log('connection ON')
 });
  
 connection.on('close', function() {

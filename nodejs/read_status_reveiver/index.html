@@ -5,7 +5,8 @@
     </head>
     <body>
           <div id="bar"> 
-          Solution: <span id="solution_status"></span><br>          
+          Solution: <span id="solution_status"></span><br>    
+          Ratio: <span id="ratio_status"></span><br>     
           GDOP: <span id="GDOP"></span><br>         
           PDOP: <span id="PDOP"></span><br>
           HDOP: <span id="HDOP"></span><br> 
@@ -38,6 +39,11 @@
     socket.on('solution', function(state) {      
       console.log('solution' + state);
       $("#solution_status").text(state.Solution);                
+    });
+
+    socket.on('ratio', function(state) {      
+      console.log('ratio' + state);
+      $("#ratio_status").text(state.Ratio);                
     });
 
         </script>
