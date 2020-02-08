@@ -1,0 +1,29 @@
+{
+  "name": "read_status_reveiver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "status.js",
+  "scripts": {
+    "test": "node status.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jancelin/RTKlibDroid.git"
+  },
+  "keywords": [
+    "nodejs",
+    "RTK",
+    "centipede"
+  ],
+  "author": "Julien Ancelin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jancelin/RTKlibDroid/issues"
+  },
+  "homepage": "https://github.com/jancelin/RTKlibDroid#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "telnet-client": "^1.2.11"
+  }
+}
