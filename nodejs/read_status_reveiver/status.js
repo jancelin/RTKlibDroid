@@ -28,8 +28,19 @@ app.use(express.static(__dirname + '/node_modules'))
 //************************
 .get('/remoteOrder', function(req, res, next) {
     console.log('command order received = ' + req.query.command);
+
     if ( req.query.command == '1') {
-      console.log('executing this command...');
+      console.log('executing the scp_backend/test.sh command...');
+      const exec = require('child_process').exec;
+      var command1 = exec('sh scp_backend/test.sh',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
+      
     }
     
     res.redirect('/');
