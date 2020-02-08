@@ -20,9 +20,19 @@ var params = {
   waitfor: '\n' // mandatory for your 'send' to work (set those either here or in your exec_params!)
 }
 
-app.use(express.static(__dirname + '/node_modules'));
-app.get('/', function(req, res,next) {
+app.use(express.static(__dirname + '/node_modules'))
+.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
+})
+// REMOTE CONTROL FONCTION
+//************************
+.get('/remoteOrder', function(req, res, next) {
+    console.log('command order received = ' + req.query.command);
+    if ( req.query.command == '1') {
+      console.log('executing this command...');
+    }
+    
+    res.redirect('/');
 });
 
 var dict = {};

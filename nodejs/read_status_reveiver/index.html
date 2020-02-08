@@ -25,6 +25,10 @@
 	  <span></span><br>
           BASE LINE (m):  <span id="BASELINE"></span><br>    
              </div>
+	<form action="/remoteOrder" method="get">
+          <input type="text" name="command" placeholder="Enter your command"/>
+          <input type="submit" value="Send command"/>
+        </form>
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
