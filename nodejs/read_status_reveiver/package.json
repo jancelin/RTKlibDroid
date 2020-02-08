@@ -4,7 +4,7 @@
   "description": "",
   "main": "status.js",
   "scripts": {
-    "test": "node status.js"
+    "start": "node status.js"
   },
   "repository": {
     "type": "git",
