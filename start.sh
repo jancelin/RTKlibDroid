@@ -111,10 +111,10 @@ submenu () {
 Param
 #Choose action...
 PS3='Choisir une action: '
-select opt in "Start Rover" "Display Param" "Modification" "Quit"
+select opt in "Start Rover terminal" "Start Rover nodejs" "Display Param" "Modification" "Quit"
 do
     case $opt in
-        "Start Rover")
+        "Start Rover terminal")
             ## Apply new param
             ./var/parcer.sh $VAR_FILE ./var/F9P_var.cmd ./run/F9P_use.cmd &&
             ./var/parcer.sh $VAR_FILE ./var/rtkrcv_var.txt ./run/rtkrcv_use.txt &&
@@ -122,10 +122,19 @@ do
                 if pgrep rtkrcv
                  then pkill rtkrcv && rtkrcv -s -o ./run/rtkrcv_use.txt
                  else rtkrcv -s -o ./run/rtkrcv_use.txt
-# activ port 5000 for connection with telenet, python or nodejs 
-#                 then pkill rtkrcv && rtkrcv -s -p 5000 -m 5001 -o ./run/rtkrcv_use.txt
-#                 else rtkrcv -s -p 5000 -m 5001 -o ./run/rtkrcv_use.txt
                 fi
+            ;;
+        "Start Rover nodejs")
+            ## Apply new param
+            ./var/parcer.sh $VAR_FILE ./var/F9P_var.cmd ./run/F9P_use.cmd &&
+            ./var/parcer.sh $VAR_FILE ./var/rtkrcv_var.txt ./run/rtkrcv_use.txt &&
+            ## Run RTKlib service
+                if pgrep rtkrcv
+                 then pkill rtkrcv && rtkrcv -s -p 5000 -m 5001 -o ./run/rtkrcv_use.txt &
+                 else rtkrcv -s -p 5000 -m 5001 -o ./run/rtkrcv_use.txt &
+                fi
+            ## Run nodejs app
+           npm start --prefix ./nodejs/read_status_reveiver &
             ;;
         "Display Param")
             Param;;
