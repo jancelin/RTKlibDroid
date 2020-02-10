@@ -116,25 +116,25 @@ connection.on('data', function(response){
   Solution = dict['solution status'];
   dict['Solution'] = Solution;
   io.emit('solution', dict);  
-  setTimeout(timerSolution, 2000);
+  setTimeout(timerSolution, 1000);
 	}
-setTimeout(timerSolution, 2000);
+setTimeout(timerSolution, 1000);
 
     function timerRatio() {
    Ratio = dict['ratio for ar validation'];
    dict['Ratio'] = Ratio;
    io.emit('ratio', dict);
-   setTimeout(timerRatio, 2000);
+   setTimeout(timerRatio, 1000);
      }
-setTimeout(timerRatio, 2000);
+setTimeout(timerRatio, 1000);
 
     function timerAge() {
    Age = dict['age of differential (s)'];
    dict['Age'] = Age;
    io.emit('age', dict);
-   setTimeout(timerAge, 2000);
+   setTimeout(timerAge, 1000);
      }
-setTimeout(timerAge, 2000);
+setTimeout(timerAge, 1000);
 
     function timerSat() {
   //console.log('TimerFunc');
@@ -194,14 +194,6 @@ setTimeout(timerBaseLine, 1000);
 }
 setTimeout(timerFunc2, 200);
 
-    //pos xyz float in to diffrent parameters#
-    POS_XYZ_Float = dict['pos xyz float (m) rover'];
-    POS_XYZ_Float_Split = POS_XYZ_Float.split(",");
-    POS_XYZ_Float_X = POS_XYZ_Float_Split[0];
-    POS_XYZ_Float_Y = POS_XYZ_Float_Split[1];
-    POS_XYZ_Float_Z = POS_XYZ_Float_Split[2];
-    //console.log(POS_XYZ_Float_Z);
-
      //pos xyz float std (m) rover in to diffrent parameters#
      POS_XYZ_Float_Std = dict['pos xyz float std (m) rover'];
      POS_XYZ_Float_Std_Split = POS_XYZ_Float_Std.split(",");
@@ -209,14 +201,6 @@ setTimeout(timerFunc2, 200);
      POS_XYZ_Float_Std_Y = POS_XYZ_Float_Std_Split[1];
      POS_XYZ_Float_Std_Z = POS_XYZ_Float_Std_Split[2];
      //console.log(POS_XYZ_Float_Std_Z);
-
-    //pos xyz fixed (m) rover in to diffrent parameters#
-    POS_XYZ_Fixed = dict['pos xyz fixed (m) rover'];
-    POS_XYZ_Fixed_Split = POS_XYZ_Fixed.split(",");
-    POS_XYZ_Fixed_X = POS_XYZ_Fixed_Split[0];
-    POS_XYZ_Fixed_Y = POS_XYZ_Fixed_Split[1];
-    POS_XYZ_Fixed_Z = POS_XYZ_Fixed_Split[2];
-    //console.log(POS_XYZ_Fixed_X);
 
     //pos xyz fixed std (m) rover in to diffrent parameters#
     POS_XYZ_Fixed_Std = dict['pos xyz fixed std (m) rover'];
@@ -245,46 +229,6 @@ setTimeout(timerFunc2, 200);
 	SDE = "no signal"
         SDU = "no signal"
        };
-
-    //pos xyz (m) base in to diffrent parameters#
-    POS_XYZ_Base = dict['pos xyz (m) base'];
-    POS_XYZ_Base_Split = POS_XYZ_Base.split(",");
-    POS_XYZ_Base_X = POS_XYZ_Base_Split[0];
-    POS_XYZ_Base_Y = POS_XYZ_Base_Split[1];
-    POS_XYZ_Base_Z = POS_XYZ_Base_Split[2];
-    //console.log(POS_XYZ_Base_X);
-
-    //pos llh (deg,m) base in to diffrent parameters#
-    POS_LLH_Base = dict['pos llh (deg,m) base'];
-    POS_LLH_Base_Split = POS_LLH_Base.split(",");
-    POS_LLH_Base_Latitude = POS_LLH_Base_Split[0];
-    POS_LLH_Base_Longitude = POS_LLH_Base_Split[1];
-    POS_LLH_Base_Height = POS_LLH_Base_Split[2];
-    //console.log(POS_LLH_Base_Latitude);
-
-    //ant delta rover e/n/u#
-    ANT_Delta_Rover = dict['ant delta rover'];
-    ANT_Delta_Rover_Split = ANT_Delta_Rover.split(" ");
-    ANT_Delta_Rover_E = ANT_Delta_Rover_Split[0];
-    ANT_Delta_Rover_N = ANT_Delta_Rover_Split[1];
-    ANT_Delta_Rover_U = ANT_Delta_Rover_Split[2];
-    //console.log(ANT_Delta_Rover_E);
-
-    //ant delta base e/n/u#f
-    ANT_Delta_Base = dict['ant delta base'];
-    ANT_Delta_Base_Split = ANT_Delta_Base.split(" ");
-    ANT_Delta_Base_E = ANT_Delta_Base_Split[0];
-    ANT_Delta_Base_N = ANT_Delta_Base_Split[1];
-    ANT_Delta_Base_U = ANT_Delta_Base_Split[2];
-    //console.log(ANT_Delta_Base_E);
-
-    //vel enu (m/s) base #
-    VEL_Enu_Base = dict['vel enu (m/s) base'];
-    VEL_Enu_Base_Split = VEL_Enu_Base.split(",");
-    VEL_Enu_Base_E = VEL_Enu_Base_Split[0];
-    VEL_Enu_Base_N = VEL_Enu_Base_Split[1];
-    VEL_Enu_Base_U = VEL_Enu_Base_Split[2];
-    //console.log(VEL_Enu_Base_E);
 
     //time of receiver clock rover ####TO FIX####
     time_clock_rover = Date(dict['time of receiver clock rover']);
