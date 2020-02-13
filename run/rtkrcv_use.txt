@@ -129,10 +129,10 @@ file-tracefile     =
 file-cmdfile1      =./run/F9P_use.cmd
 # 
 
-inpstr1-type       =serial     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr1-type       =serial # PC Ardusimple     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
 inpstr2-type       =ntripcli   # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
 inpstr3-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
-inpstr1-path       =ttyACM0:115200:8:n:1:off
+inpstr1-path       =ttyUSB0:115200:8:n:1:off
 inpstr2-path       =:@caster.centipede.fr:2101/LIENSS:
 inpstr3-path       =
 inpstr1-format     =ubx        # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
@@ -143,7 +143,7 @@ inpstr2-nmealat    =0          # (deg)
 inpstr2-nmealon    =0          # (deg)
 outstr1-type       =file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
 outstr2-type       =tcpsvr     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-outstr1-path       =./solution/sol_%Y%m%d%h%M%S.pos
+outstr1-path       =sol_%Y%m%d%h%M%S.pos
 outstr2-path       =:@localhost:9000:
 outstr1-format     =llh        # (0:llh,1:xyz,2:enu,3:nmea)
 outstr2-format     =nmea       # (0:llh,1:xyz,2:enu,3:nmea)

@@ -89,7 +89,7 @@ sat()   {
 # submenu modification
 submenu () {
   local PS3='Modifier:'
-  select opt in "RTK setting" "Antenna Connexion" "Caster Connexion" "Satellites" "Return"
+  select opt in "RTK setting" "Antenna Connexion" "Caster Connexion" "Type Connexion" "Satellites" "Return"
   do
       case $opt in
           "RTK setting")
@@ -100,6 +100,8 @@ submenu () {
               corinput;;
 	  "Satellites")
 	      sat;;
+	  "Type Connexion")
+	      usbuart;;
           "Return")
               return;;
           *) echo "invalid option $REPLY";;

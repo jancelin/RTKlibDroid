@@ -194,6 +194,7 @@ setTimeout(timerBaseLine, 1000);
 }
 setTimeout(timerFunc2, 200);
 
+
      //pos xyz float std (m) rover in to diffrent parameters#
      POS_XYZ_Float_Std = dict['pos xyz float std (m) rover'];
      POS_XYZ_Float_Std_Split = POS_XYZ_Float_Std.split(",");
