@@ -26,6 +26,6 @@ cp -r ./RTKlibDroid/source ./
 
 find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 ##symbolic link for execution at start of session (not possible at start with userland)
-ln -i start.sh /etc/profile.d/start.sh
+##ln -i start.sh /etc/profile.d/start.sh
 
 #close session, stop session Userland (android), connect GNSS antenna F9P, start TCPUART, start rover Userland.
