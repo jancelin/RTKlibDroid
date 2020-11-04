@@ -126,7 +126,7 @@ file-tempdir       =
 file-geexefile     =
 file-solstatfile   =2
 file-tracefile     =
-file-cmdfile1      =./run/F9P_use.cmd
+file-cmdfile1      =./RTKroverConf/F9P_use.cmd
 # 
 
 inpstr1-type       =serial     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
