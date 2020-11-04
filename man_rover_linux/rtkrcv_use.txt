@@ -1,5 +1,40 @@
-# good starting point for rtknavi options for u-blox NEO-M8T 5 Hz: demo5 b29 code
+# good starting point for rtknavi RTK options for u-blox ZED-F9P
 
+inpstr1-type       =serial     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr2-type       =ntripcli   # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr3-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr1-path       =ttyACM0:115200:8:n:1:off
+inpstr2-path       =:@caster.centipede.fr:2101/LIENSS:
+inpstr3-path       =
+inpstr1-format     =ubx        # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
+inpstr2-format     =rtcm3      # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
+inpstr3-format     =           # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
+inpstr2-nmeareq    =off        # (0:off,1:latlon,2:single)
+inpstr2-nmealat    =0          # (deg)
+inpstr2-nmealon    =0          # (deg)
+outstr1-type       =tcpsvr       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+outstr2-type       =tcpsvr     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+outstr1-path       =:@localhost:9000:
+outstr2-path       =:@localhost:9001:
+outstr1-format     =llh        # (0:llh,1:xyz,2:enu,3:nmea)
+outstr2-format     =nmea       # (0:llh,1:xyz,2:enu,3:nmea)
+logstr1-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr2-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr3-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr1-path       =
+logstr2-path       =
+logstr3-path       =
+misc-svrcycle      =10         # (ms)
+misc-timeout       =10000      # (ms)
+misc-reconnect     =10000      # (ms)
+misc-nmeacycle     =5000       # (ms)
+misc-buffsize      =32768      # (bytes)
+misc-navmsgsel     =all        # (0:all,1:rover,2:base,3:corr)
+misc-proxyaddr     =
+misc-fswapmargin   =30         # (s)
+#
+file-cmdfile1      =./RTKroverConf/F9P_use.cmd
+#
 console-passwd     = 
 console-timetype   =gpst       # (0:gpst,1:utc,2:jst,3:tow) 
 console-soltype    =dms        # (0:dms,1:deg,2:xyz,3:enu,4:pyl) 
@@ -126,38 +161,3 @@ file-tempdir       =
 file-geexefile     =
 file-solstatfile   =2
 file-tracefile     =
-file-cmdfile1      =./RTKroverConf/F9P_use.cmd
-# 
-
-inpstr1-type       =serial     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
-inpstr2-type       =ntripcli   # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
-inpstr3-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
-inpstr1-path       =ttyACM0:115200:8:n:1:off
-inpstr2-path       =:@caster.centipede.fr:2101/LIENSS:
-inpstr3-path       =
-inpstr1-format     =ubx        # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
-inpstr2-format     =rtcm3      # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
-inpstr3-format     =           # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:swift,6:hemis,7:skytraq,8:gw10,9:javad,10:nvs,11:binex,12:rt17,13:sbf,14:cmr,15:tersus,17:sp3)
-inpstr2-nmeareq    =off        # (0:off,1:latlon,2:single)
-inpstr2-nmealat    =0          # (deg)
-inpstr2-nmealon    =0          # (deg)
-outstr1-type       =file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-outstr2-type       =tcpsvr     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-outstr1-path       =./solution/sol_%Y%m%d%h%M%S.pos
-outstr2-path       =:@localhost:9000:
-outstr1-format     =llh        # (0:llh,1:xyz,2:enu,3:nmea)
-outstr2-format     =nmea       # (0:llh,1:xyz,2:enu,3:nmea)
-logstr1-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-logstr2-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-logstr3-type       =off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-logstr1-path       =
-logstr2-path       =
-logstr3-path       =
-misc-svrcycle      =10         # (ms)
-misc-timeout       =10000      # (ms)
-misc-reconnect     =10000      # (ms)
-misc-nmeacycle     =5000       # (ms)
-misc-buffsize      =32768      # (bytes)
-misc-navmsgsel     =all        # (0:all,1:rover,2:base,3:corr)
-misc-proxyaddr     =
-misc-fswapmargin   =30         # (s)
