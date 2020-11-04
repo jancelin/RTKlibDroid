@@ -15,8 +15,8 @@ sudo apt-get install -y gcc git build-essential automake \
                         
 #get conf files
 mkdir ./RTKroverConf
-wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/rtkrcv_use.txt -O ./RTKroverConf/rtkrcv_use.txt
-wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/F9P_use.cmd -O ./RTKroverConf/F9P_use.cmd
+wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/rtkrcv_use.txt -O ./RTKroverConf/rtkrcv_use.txt
+wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/F9P_use.cmd -O ./RTKroverConf/F9P_use.cmd
 wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/start.sh -O ./RTKroverConf/start.sh
 chmod +x ./RTKroverConf/start.sh
 
