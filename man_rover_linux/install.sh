@@ -12,6 +12,14 @@
 sudo apt-get update
 sudo apt-get install -y gcc git build-essential automake \
                         wget zip unzip nano psmisc procps
+                        
+#get conf files
+mkdir ./RTKroverConf
+wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/rtkrcv_use.txt -O ./RTKroverConf/rtkrcv_use.txt
+wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/F9P_use.cmd -O ./RTKroverConf/F9P_use.cmd
+wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/start.sh -O ./RTKroverConf/start.sh
+chmod +x ./RTKroverConf/start.sh
+
 ##install rtklib
 if [ ! -f /usr/local/bin/str2str ]
       then 
@@ -25,13 +33,6 @@ if [ ! -f /usr/local/bin/str2str ]
           echo 'str2str already exist'
       fi
       
-#get conf files
-mkdir ./RTKroverConf
-wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/rtkrcv_use.txt -O ./RTKroverConf/rtkrcv_use.txt
-wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/F9P_use.cmd -O ./RTKroverConf/F9P_use.cmd
-wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/start.sh -O ./RTKroverConf/start.sh
-chmod +x ./RTKroverConf/start.sh
-
 
 #RUN
 echo '#######################################'
