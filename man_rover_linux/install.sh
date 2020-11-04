@@ -4,7 +4,7 @@
 ##
 ### RUN RTKRCV install command:
 ##
-### curl -fsSL https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/install.sh | sudo sh
+### curl -k https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/install.sh | sudo sh
 ##
 ###############################
 
