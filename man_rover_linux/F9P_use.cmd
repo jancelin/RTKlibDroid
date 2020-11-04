@@ -1,0 +1,48 @@
+#https://www.u-blox.com/en/docs/UBX-18010854
+#for Ublox_ZED-F9P
+
+#Set sample rate ex:5 Hz > 200 (ms), 1Hz > 1000 (ms)
+!UBX CFG-VALSET 0 1 0 0 CFG-RATE-MEAS 200
+
+#SET DynModel:
+#set 0.Portable,2.Stationary,3.Pedestrian,4.automotive,5.sea,6.Airborne<1g,7.Airborne<2g,8.Airborne<3g
+!UBX CFG-VALSET 0 1 0 0 CFG-NAVSPG-DYNMODEL 3
+
+#set Minimum Elevation for a GNSS satellite to be used in NAV
+!UBX CFG-VALSET 0 1 0 0 CFG-NAVSPG-INFIL_MINELEV 10
+
+#SET GNSS system settings
+#Set enable GPS
+!UBX CFG-VALSET 0 1 0 0 CFG-SIGNAL-GPS_ENA 1
+#Set enable Galileo
+!UBX CFG-VALSET 0 1 0 0 CFG-SIGNAL-GAL_ENA 1
+#Set enable Beidou
+!UBX CFG-VALSET 0 1 0 0 CFG-SIGNAL-BDS_ENA 1
+#Set enable QZSS
+!UBX CFG-VALSET 0 1 0 0 CFG-SIGNAL-QZSS_ENA 1
+#Set enable GLONASS
+!UBX CFG-VALSET 0 1 0 0 CFG-SIGNAL-GLO_ENA 1
+
+#SET turn on USB messages
+#Set turn on UBX RXM-RAWX messages on USB
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-UBX_RXM_RAWX_USB 1
+#Set turn on UBX RXM_SFRBX messages on USB
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-UBX_RXM_SFRBX_USB 1
+#set turn on UBX TIM TM2 messages on USB
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-UBX_TIM_TM2_USB 1
+
+#SET turn off USB extra messages default messages 
+#set NMEA GGA
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_GGA_USB 0
+#set NMEA GLL
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_GLL_USB 0
+#set NMEA GSA
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_GSA_USB 0
+#set NMEA GSV
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_GSV_USB 0
+#set NMEA RMC
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_RMC_USB 0
+#set NMEA VTG
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_VTG_USB 0
+#set NMEA ZDA
+!UBX CFG-VALSET 0 1 0 0 CFG-MSGOUT-NMEA_ID_ZDA_USB 0
