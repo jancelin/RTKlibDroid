@@ -35,6 +35,11 @@ chmod +x ./RTKroverConf/start.sh
 
 #RUN
 echo '#######################################'
+echo ''
+echo 'modify param'
+echo '* modify RTKlib param: sudo nano ./RTKroverConf/rtkrcv_use.txt'
+echo '* modify F9P param:    sudo nano ./RTKroverConf/F9P_use.cmd'
+echo ''
 echo 'You can run rtkrcv with this command:'
 echo ''
 echo './RTKroverConf/start.sh'
