@@ -10,21 +10,31 @@ sudo apt-get update
 sudo apt-get install -y gcc git build-essential automake \
                         wget zip unzip nano psmisc procps
 ##install rtklib
-git clone -b demo5 https://github.com/rtklibexplorer/RTKLIB.git
-cd ./RTKLIB/app 
-make all 
-make install
-make clean
-cd
-
+if [ ! -f /usr/local/bin/str2str ]
+      then 
+          git clone -b demo5 https://github.com/rtklibexplorer/RTKLIB.git
+          cd ./RTKLIB/app 
+          make --directory=RTKLIB/app/rtkrcv/gcc
+          make --directory=RTKLIB/app/rtkrcv/gcc install
+          make clean
+          cd
+      else
+        echo 'str2str already exist'
+      fi
 #get RTKlibDroid
-git clone -b master https://github.com/jancelin/RTKlibDroid.git
-cp ./RTKlibDroid/start.sh ./
-cp -r ./RTKlibDroid/run ./
-cp -r ./RTKlibDroid/var ./
-cp -r ./RTKlibDroid/source ./
+if [ ! -f ./RTKlibDroid/start.sh ]
+      then 
+          git clone -b master https://github.com/jancelin/RTKlibDroid.git
+          #cp ./RTKlibDroid/start.sh ./
+          #cp -r ./RTKlibDroid/run ./
+          #cp -r ./RTKlibDroid/var ./
+          #cp -r ./RTKlibDroid/source ./
+      else
+          echo 'RTKlibDroid already exist > pull from github:'
+          cd ./RTKlibDroid && git pull
+      fi
 
-find ./ -type f -iname "*.sh" -exec chmod +x {} \;
+find ./RTKlibDroid -type f -iname "*.sh" -exec chmod +x {} \;
 ##symbolic link for execution at start of session (not possible at start with userland)
 ##ln -i start.sh /etc/profile.d/start.sh
 
