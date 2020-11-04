@@ -14,8 +14,8 @@ if [ ! -f /usr/local/bin/str2str ]
       then 
           git clone -b demo5 https://github.com/rtklibexplorer/RTKLIB.git
           cd ./RTKLIB/app 
-          make --directory=RTKLIB/app/rtkrcv/gcc
-          make --directory=RTKLIB/app/rtkrcv/gcc install
+          make all
+          make  install
           make clean
           cd
       else
@@ -25,10 +25,10 @@ if [ ! -f /usr/local/bin/str2str ]
 if [ ! -f ./RTKlibDroid/start.sh ]
       then 
           git clone -b master https://github.com/jancelin/RTKlibDroid.git
-          #cp ./RTKlibDroid/start.sh ./
-          #cp -r ./RTKlibDroid/run ./
-          #cp -r ./RTKlibDroid/var ./
-          #cp -r ./RTKlibDroid/source ./
+          cp ./RTKlibDroid/start.sh ./
+          cp -r ./RTKlibDroid/run ./
+          cp -r ./RTKlibDroid/var ./
+          cp -r ./RTKlibDroid/source ./
       else
           echo 'RTKlibDroid already exist > pull from github:'
           cd ./RTKlibDroid && git pull
@@ -36,6 +36,6 @@ if [ ! -f ./RTKlibDroid/start.sh ]
 
 find ./RTKlibDroid -type f -iname "*.sh" -exec chmod +x {} \;
 ##symbolic link for execution at start of session (not possible at start with userland)
-##ln -i start.sh /etc/profile.d/start.sh
+ln -i start.sh /etc/profile.d/start.sh
 
 #close session, stop session Userland (android), connect GNSS antenna F9P, start TCPUART, start rover Userland.
