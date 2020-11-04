@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###############################
+##
+### RUN RTKRCV install command:
+##
+### curl -fsSL https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/install.sh | sudo sh
+##
+###############################
+
 ##install tools
 sudo apt-get update
 sudo apt-get install -y gcc git build-essential automake \
