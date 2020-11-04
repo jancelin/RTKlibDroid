@@ -25,8 +25,8 @@ if [ ! -f /usr/local/bin/str2str ]
       then 
           git clone -b demo5 https://github.com/rtklibexplorer/RTKLIB.git
           cd ./RTKLIB/app 
-          make --directory=RTKLIB/app/rtkrcv/gcc
-          make --directory=RTKLIB/app/rtkrcv/gcc install
+          make all
+          make install
           make clean
           cd
       else
