@@ -21,12 +21,12 @@ if [ ! -f /usr/local/bin/str2str ]
 mkdir ./RTKroverConf
 wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/rtkrcv_use.txt -O ./RTKroverConf/rtkrcv_use.txt
 wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/run/F9P_use.cmd -O ./RTKroverConf/F9P_use.cmd
-
+wget https://raw.githubusercontent.com/jancelin/RTKlibDroid/master/man_rover_linux/start.sh -O ./RTKroverConf/start.sh
 chmod +x ./RTKroverConf/start.sh
 
 
 #RUN
 echo '#######################################
-echo 'You can run rtkrcv with this command'
+echo 'You can run rtkrcv with this command:'
 echo './RTKroverConf/start.sh'
 echo '#######################################
