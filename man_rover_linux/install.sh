@@ -26,7 +26,9 @@ chmod +x ./RTKroverConf/start.sh
 
 
 #RUN
-echo '#######################################
+echo '#######################################'
 echo 'You can run rtkrcv with this command:'
+echo ''
 echo './RTKroverConf/start.sh'
-echo '#######################################
+echo ''
+echo '#######################################'
